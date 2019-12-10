@@ -19,15 +19,32 @@ def selection_sort( arr ):
     return arr
  
 print('result', selection_sort([5,6,9,4,3,1,2,0,8,7]))
-
-
-# TO-DO:  implement the Bubble Sort function below
+# TO-DO: implement the Bubble Sort function below
 def bubble_sort( arr ):
-
-    return arr
+    #boolean to turn off while loop
+	arr_sorted = True
+    #conditional statement to run it while true
+	while arr_sorted:
+        #sets condition to false
+		arr_sorted = False
+        #iterate through the array
+		for x in range(0, len(arr) - 1):
+			#REMEMBER -- i and x are the INDEX, arr[i] and arr[x] are the VALUES
+            #checks if current index value is greater than next index
+			if arr[x] > arr[x + 1]:
+                #grabs current index value
+				temp = arr[x] #7
+                #assign current index value to the next index value--|
+				arr[x] = arr[x + 1]                                 #SWAPS
+                #assign next index value to the current index value--|
+				arr[x + 1] = temp
+                #if it finds current index value greater than next index value, turn on while loop.
+				arr_sorted = True
+    #returns sorted array
+	return arr
 
 
 # STRETCH: implement the Count Sort function below
-def count_sort( arr, maximum=-1 ):
+# def count_sort( arr, maximum=-1 ):
 
-    return arr
+#     return arr
