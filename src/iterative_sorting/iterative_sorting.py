@@ -8,13 +8,15 @@ def selection_sort( arr ):
         for x in range(cur_index, len(arr)):
             #if smallest value on index 0 > than the value of array in x position, assign smallest.
             if arr[smallest_index] > arr[x]:
-                smallest_index = x
+                smallest_index = x #index of 2
+                # print('smallest_index', smallest_index)
         #holds temporarly the index in position smallest_index
-        temp = arr[smallest_index] 
+        # temp = arr[smallest_index] 
         #switchs whatever is on the smallest index to the current index that checked (on the if statement) that it was less than smallest_index.
-        arr[smallest_index] = arr[cur_index]
+        arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index]
         #switchs whatever is on current index with whatever it was on the smallest index.
-        arr[cur_index] = temp
+        # arr[cur_index] = temp
+        #1,2 = 2,1
 
     return arr
  
@@ -33,16 +35,15 @@ def bubble_sort( arr ):
             #checks if current index value is greater than next index
 			if arr[x] > arr[x + 1]:
                 #grabs current index value
-				temp = arr[x] #7
+				# temp = arr[x] #7
                 #assign current index value to the next index value--|
-				arr[x] = arr[x + 1]                                 #SWAPS
+				arr[x], arr[x + 1] = arr[x + 1], arr[x]                                 #SWAPS
                 #assign next index value to the current index value--|
-				arr[x + 1] = temp
+				# arr[x + 1] = temp
                 #if it finds current index value greater than next index value, turn on while loop.
 				arr_sorted = True
     #returns sorted array
 	return arr
-
 
 # STRETCH: implement the Count Sort function below
 # def count_sort( arr, maximum=-1 ):
