@@ -1,4 +1,5 @@
 # TO-DO: Complete the selection_sort() function below 
+
 def selection_sort(arr):
     # we iterate over the array
     for i in range(0, len(arr) - 1):
@@ -16,10 +17,11 @@ def selection_sort(arr):
         arr[i] = arr[smallest]
         # then we swaps what's the smallest to be what is temp (which is what it was the value of i)
         arr[smallest] = temp
+
     return arr
-
-
-# TO-DO:  implement the Bubble Sort function below
+ 
+print('result', selection_sort([5,6,9,4,3,1,2,0,8,7]))
+# TO-DO: implement the Bubble Sort function below
 def bubble_sort( arr ):
     # first iterator is to keep a track of the numbers than has been sorted (bubbled up)
     for i in range(0, len(arr) - 1):
@@ -30,9 +32,8 @@ def bubble_sort( arr ):
                 # we swap places...
                 arr[j], arr[j+1] = arr[j+1], arr[j]
     return arr
-
-
+  
 # STRETCH: implement the Count Sort function below
-def count_sort( arr, maximum=-1 ):
+# def count_sort( arr, maximum=-1 ):
 
-    return arr
+#     return arr
