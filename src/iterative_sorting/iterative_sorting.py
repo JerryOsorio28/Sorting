@@ -1,50 +1,38 @@
 # TO-DO: Complete the selection_sort() function below 
-def selection_sort( arr ):
-    #loops through the array 
+
+def selection_sort(arr):
+    # we iterate over the array
     for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        #loops through the array right to the initial for loop
-        for x in range(cur_index, len(arr)):
-            #if smallest value on index 0 > than the value of array in x position, assign smallest.
-            if arr[smallest_index] > arr[x]:
-                smallest_index = x #index of 2
-                # print('smallest_index', smallest_index)
-        #holds temporarly the index in position smallest_index
-        # temp = arr[smallest_index] 
-        #switchs whatever is on the smallest index to the current index that checked (on the if statement) that it was less than smallest_index.
-        arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index]
-        #switchs whatever is on current index with whatever it was on the smallest index.
-        # arr[cur_index] = temp
-        #1,2 = 2,1
+        # set the smallest value to be the current index
+        smallest = i
+        # second loop to compare values with i as we iterate
+        for j in range(i, len(arr)):
+            # if whats on index j is less than what it is currently consider as the smallest...
+            if arr[j] < arr[smallest]:
+                # we set the smallest to be the current index
+                smallest = j
+        # once we have the true smallest value, we grab the value of index i first...
+        temp = arr[i]
+        # we swap by setting what's currently the value of i to be the new smallest..
+        arr[i] = arr[smallest]
+        # then we swaps what's the smallest to be what is temp (which is what it was the value of i)
+        arr[smallest] = temp
 
     return arr
  
 print('result', selection_sort([5,6,9,4,3,1,2,0,8,7]))
 # TO-DO: implement the Bubble Sort function below
 def bubble_sort( arr ):
-    #boolean to turn off while loop
-	arr_sorted = True
-    #conditional statement to run it while true
-	while arr_sorted:
-        #sets condition to false
-		arr_sorted = False
-        #iterate through the array
-		for x in range(0, len(arr) - 1):
-			#REMEMBER -- i and x are the INDEX, arr[i] and arr[x] are the VALUES
-            #checks if current index value is greater than next index
-			if arr[x] > arr[x + 1]:
-                #grabs current index value
-				# temp = arr[x] #7
-                #assign current index value to the next index value--|
-				arr[x], arr[x + 1] = arr[x + 1], arr[x]                                 #SWAPS
-                #assign next index value to the current index value--|
-				# arr[x + 1] = temp
-                #if it finds current index value greater than next index value, turn on while loop.
-				arr_sorted = True
-    #returns sorted array
-	return arr
-
+    # first iterator is to keep a track of the numbers than has been sorted (bubbled up)
+    for i in range(0, len(arr) - 1):
+        # second iterator is to make a comparison between the current index and the index after that..
+        for j in range(0, len(arr) - 1 - i):
+            # if it is greater..
+            if arr[j] > arr[j + 1]:
+                # we swap places...
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+  
 # STRETCH: implement the Count Sort function below
 # def count_sort( arr, maximum=-1 ):
 
